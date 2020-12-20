@@ -28,19 +28,20 @@ int main(int argc, char* argv[]) {
 		}
 		if (n == 2) {
 			mutableToLower(str);
-			mutableXOREncod(str, key);
+			mutableXor(str, key);
 			printf("Encoded string: %s", str);
 		}
 		free(str);
 	}
 	if (argc == 4) {
 		if (strcmp(argv[1], "caesar") == 0) {
-			char* str = malloc(strlen(argv[2]) * sizeof(char));
+			char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));
 			strcpy(argv[2], str);
 			mutableStrip(str);
 			mutableToLower(str);
-			if (isStringNumber(argv[3]) == true){
-				int offset = atoi(argv[3]);
+ 			int offset;
+			if (isStringNumber(argv[3]) == true) {
+				offset = atoi(argv[3]);
 			}
 			else {
 				printf("Offset must be an integer");
@@ -51,13 +52,13 @@ int main(int argc, char* argv[]) {
 			free(str);
 		}
 		if (strcmp(argv[1], "xor") == 0) {
-      			char* str = malloc(strlen(argv[2]) * sizeof(char));		
+      			char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));		
 			strcpy(argv[2], str);
-			char* key = malloc(strlen(argv[3]) * sizeof(char));
+			char* key = malloc((strlen(argv[3]) + 1) * sizeof(char));
 			strcpy(argv[3], key);
 			mutableStrip(str);
 			mutableToLower(str);
-			mutableXOR(str, key);
+			mutableXor(str, key);
 			printf("Encoded string: %s", str);
 			free(str);
 			free(key);
