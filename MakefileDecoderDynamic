@@ -1,0 +1,20 @@
+decoder: decoder.o libcypher.so libfunctions.so
+	gcc -o decoder.o decoder -L. -lheader -Wl, -rpath,.
+
+decoder.o: decoder.c
+	gcc -c decoder.c
+
+cypher.o: cypher.c
+	gcc -c -fPIC cypher.c
+
+function.o: functions.c
+	gcc -c -fPIC functions.c
+
+libcypher.so: cypher.o 
+	gcc -shared -o libcypher.so cypher.o 
+
+libfunctions.so: function.o
+	gcc -shared -o libfunctions.so function.o
+
+clean:
+	rm -rf *.o *.so decoder
