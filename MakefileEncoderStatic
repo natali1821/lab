@@ -1,8 +1,8 @@
-decoder: decoder.o libcypher.a libfunctions.a
-	gcc -o decoder.o decoder -L. -lcypher -lfunctions
+encoder: encoder.o libcypher.a libfunctions.a
+	gcc -o encoder.o encoder -L. -lcypher -lfunctions
 
-decoder.o: decoder.c
-	gcc -c decoder.c
+encoder.o: encoder.c
+	gcc -c encoder.c
 
 cypher.o: cypher.c
 	gcc -c cypher.c
@@ -17,4 +17,4 @@ libfunctions.a: functions.o
 	ar cr libfunctions.a functions.o
 
 clean:
-	rm -rf *.o *.a decoder
+	rm -rf *.o *.a encoder

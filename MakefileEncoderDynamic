@@ -1,5 +1,5 @@
 encoder: encoder.o libcypher.so libfunctions.so
-	gcc -o encoder.o encoder -L. -lheader -Wl, -rpath,.
+	gcc -o encoder.o encoder -L. -lcypher -lfunctions -Wl, -rpath,.
 
 encoder.o: encoder.c
 	gcc -c encoder.c

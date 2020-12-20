@@ -1,5 +1,5 @@
 decoder: decoder.o libcypher.so libfunctions.so
-	gcc -o decoder.o decoder -L. -lheader -Wl, -rpath,.
+	gcc -o decoder.o decoder -L. -lcypher -lfunctions -Wl, -rpath,.
 
 decoder.o: decoder.c
 	gcc -c decoder.c
