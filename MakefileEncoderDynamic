@@ -1,0 +1,20 @@
+encoder: encoder.o libcypher.so libfunctions.so
+	gcc -o encoder.o encoder -L. -lheader -Wl, -rpath,.
+
+encoder.o: encoder.c
+	gcc -c encoder.c
+
+cypher.o: cypher.c
+	gcc -c -fPIC cypher.c
+
+functions.o: functions.c
+	gcc -c -fPIC functions.c
+
+libcypher.so: cypher.o 
+	gcc -shared -o libcypher.so cypher.o 
+
+libfunctions.so: functions.o
+	gcc -shared -o libfunctions.so functions.o
+
+clean:
+	rm -rf *.o *.so encoder
