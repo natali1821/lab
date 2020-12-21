@@ -24,7 +24,7 @@ char* immutableToUpper(const char* str) {
 void mutableToLower(char* str){
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
-		if (str[i]<'a' || str[i] > 'z') {
+		if (str[i] >= 'A' && str[i] <= 'Z') {
 			str[i] += ('a'-'A');
 		}
 	}
@@ -39,7 +39,7 @@ char* immutableToLower(const char* str) {
 }
 
 void mutableStrip(char* str) {
-    	int k = 0, f = 0;
+    int k = 0, f = 0;
 	int h;
 	while (str[f] == ' ') {
 		++f;
