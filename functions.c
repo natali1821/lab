@@ -6,14 +6,14 @@
 void mutableToUpper(char* str) {
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
-		if (str[i] < 'A' || str[i] > 'Z') {
+		if (str[i] >= 'a' && str[i] <= 'z') {
 			str[i] -= ('a'-'A');
-		
+
 		}
-	}								
+	}
 }
 
-char* immutableToUpper(const char* str) {		
+char* immutableToUpper(const char* str) {
 	int n = strlen(str) + 1;
 	char* strCopy = malloc(n * sizeof(char));
 	strcpy(strCopy, str);
@@ -21,11 +21,11 @@ char* immutableToUpper(const char* str) {
 	return strCopy;
 }
 
-void mutableToLower(char* str){						
+void mutableToLower(char* str){
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
 		if (str[i]<'a' || str[i] > 'z') {
-			str[i] += ('a'-'A');	
+			str[i] += ('a'-'A');
 		}
 	}
 }
@@ -48,7 +48,7 @@ void mutableStrip(char* str) {
 		str[k] = str[f];
 		if (str[k] != ' ') {
 			h = k;
-		}	 
+		}
 		++k;
 	}
 	if (str[h] != ' ' && str[h+1] == ' ') {
@@ -92,9 +92,9 @@ void mutableFilter(char* str) {
 	int i = 0;
 	int k = 0;
 	while (str[i] != '\0') {
-		if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') 
+		if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')
 	    	    || (str[i] >= '0' && str[i] <= '9') || (str[i] == ' '))
-		{	
+		{
 			str[k] = str[i];
 			++k;
 		}
@@ -118,7 +118,7 @@ bool isStringNumber(char* str) {
 		if ((str[i] < '0' || str[i] > '9') && str[i] != '.' && str[i] != ','){
 			k = false;
 			break;
-		}	
+		}
 	}
 	return k;
 }
