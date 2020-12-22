@@ -19,14 +19,17 @@ int main(int argc, char* argv[]) {
 		scanf("%100s", str);
 		str = (char*)malloc((strlen(str) + 1) * sizeof(char));
 		printf("Key:");
-		int offset;
-		scanf("%d", &offset);
 		if (n == 1) {
+            int offset;
+            scanf("%d", &offset);
 			mutableToLower(str);
 			mutableCaesar(str, offset);
 			printf("Encoded string: %s", str);
 		}
 		if (n == 2) {
+		    char* key = malloc(50 * sizeof(char));
+            scanf("%50s", key);
+            key = (char*)malloc((strlen(str) + 1) * sizeof(char));
 			mutableToLower(str);
 			mutableXor(str, key);
 			printf("Encoded string: %s", str);
@@ -52,7 +55,7 @@ int main(int argc, char* argv[]) {
 			free(str);
 		}
 		if (strcmp(argv[1], "xor") == 0) {
-      			char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));		
+            char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));
 			strcpy(argv[2], str);
 			char* key = malloc((strlen(argv[3]) + 1) * sizeof(char));
 			strcpy(argv[3], key);
@@ -63,5 +66,6 @@ int main(int argc, char* argv[]) {
 			free(str);
 			free(key);
 		}
+	}
 	return 0;
 }
