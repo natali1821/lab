@@ -1,9 +1,11 @@
 #ifndef CYPHER_H
 #define CYPHER_H
-#define ASCII_SIZE 256
-#define ASCII_DIF 32
-void mutableCaesar(char*, int);
-char* immutableCaesar(const char*, int);
-void mutableXor(char*, const char*);
-char* immutableXor(const char*, const char*);
+void mutableCaesarEncoder(char*, int);
+char* immutableCaesarEncoder(const char*, int);
+void mutableXorEncoder(char*, const char*);
+char* immutableXorEncoder(const char*, const char*);
+void mutableCaesarDecoder(char*, int);
+char* immutableCaesarDecoder(const char*, int);
+void mutableXorDecoder(char*, const char*);
+char* immutableXorDecoder(const char*, const char*);
 #endif
