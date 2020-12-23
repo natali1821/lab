@@ -1,10 +1,10 @@
 all: encoder decoder
 
 encoder: encoder.o libcypher.so libfunctions.so
-	gcc -o encoder.o encoder -L. -lcypher -lfunctions -Wl,-rpath,.
+	gcc -o  encoder -L. -lcypher -lfunctions -Wl,-rpath,.
 
 decoder: decoder.o libcypher.so libfunctions.so
-	gcc -o decoder.o decoder -L. -lcypher -lfunctions -Wl,-rpath,.
+	gcc -o  decoder -L. -lcypher -lfunctions -Wl,-rpath,.
 
 decoder.o: decoder.c
 	gcc -c decoder.c
