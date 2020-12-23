@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
 	}
 	if (argc == 4) {
         	char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));
-        	strcpy(argv[2], str);
+        	strcpy(str, argv[2]);
        		mutableStrip(str);
        	 	mutableToLower(str);
 		if (strcmp(argv[1], "--caesar") == 0) {
@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
 		}
 		if (strcmp(argv[1], "--xor") == 0) {
 			char* key = malloc((strlen(argv[3]) + 1) * sizeof(char));
-			strcpy(argv[3], key);
+			strcpy(key, argv[3]);
 			mutableStrip(str);
 			mutableToLower(str);
 			mutableXorEncoder(str, key);
