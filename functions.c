@@ -112,7 +112,7 @@ bool isStringNumber(char* str) {
 	bool k = true;
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
-		if ((str[i] < '0' || str[i] > '9') && str[i] != '.' && str[i] != ','){
+		if ((str[i] >= '0' && str[i] <= '9') && str[i] != '.' && str[i] != ','){
 			k = false;
 			break;
 		}
@@ -124,8 +124,8 @@ bool isStringWord(char* str){
 	bool k = true;
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
-		if ((str[i] >= 'a' || str[i] <= 'z')
-		     && (str[i] >= 'A' || str[i] <= 'Z'))
+		if ((str[i] >= 'a' && str[i] <= 'z')
+		     && (str[i] >= 'A' && str[i] <= 'Z'))
 		{
 			k = false;
 			break;
