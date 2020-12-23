@@ -40,32 +40,32 @@ int main(int argc, char* argv[]) {
 		free(str);
 	}
 	if (argc == 4) {
-        	char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));
-        	strcpy(str, argv[2]);
-        	mutableStrip(str);
-       		mutableToLower(str);
-            if (strcmp(argv[1], "--caesar") == 0) {
-                int offset;
-                if (isStringNumber(argv[3]) == true) {
-                    offset = atoi(argv[3]);
-                }
-                else {
-                    printf("Offset must be an integer");
-                    exit(1);
-                }
-                mutableCaesarDecoder(str, offset);
-                printf("Decoded string: %s", str);
+        char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));
+        strcpy(str, argv[2]);
+        mutableStrip(str);
+        mutableToLower(str);
+        if (strcmp(argv[1], "--caesar") == 0) {
+            int offset;
+            if (isStringNumber(argv[3]) == true) {
+                offset = atoi(argv[3]);
             }
-            if (strcmp(argv[1], "--xor") == 0) {
-                char* key = malloc((strlen(argv[3]) + 1) * sizeof(char));
-                strcpy(key, argv[3]);
-                mutableStrip(str);
-                mutableToLower(str);
-                mutableXorDecoder(str, key);
-                printf("Decoded string: %s", str);
-                free(key);
-		}
-		free(str);
+            else {
+                printf("Offset must be an integer");
+                exit(1);
+            }
+            mutableCaesarDecoder(str, offset);
+            printf("Decoded string: %s", str);
+        }
+        if (strcmp(argv[1], "--xor") == 0) {
+            char* key = malloc((strlen(argv[3]) + 1) * sizeof(char));
+            strcpy(key, argv[3]);
+            mutableStrip(str);
+            mutableToLower(str);
+            mutableXorDecoder(str, key);
+            printf("Decoded string: %s", str);
+            free(key);
+            }
+        free(str);
 	}
 	return 0;
 }
