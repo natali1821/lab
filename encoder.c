@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 		if (n != 1 && n != 2) {
             		printf("Incorrect data");
             		exit(1);
-        }
+        	}
 		printf("String:");
 		char* str = malloc(100 * sizeof(char));
 		scanf("%100s", str);
