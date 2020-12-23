@@ -15,25 +15,25 @@ int main(int argc, char* argv[]) {
 		int n;
 		scanf("%d", &n);
 		if (n != 1 && n != 2) {
-            		printf("Incorrect data");
-            		exit(1);
-        	}
+            printf("Incorrect data");
+            exit(1);
+        }
 		printf("String:");
 		char* str = malloc(100 * sizeof(char));
 		scanf("%100s", str);
 		str = (char*)malloc((strlen(str) + 1) * sizeof(char));
 		printf("Key:");
 		if (n == 1) {
-            		int offset;
-            		scanf("%d", &offset);
-            		mutableToLower(str);
+            int offset;
+            scanf("%d", &offset);
+            mutableToLower(str);
 			mutableCaesarEncoder(str, offset);
 			printf("Encoded string: %s", str);
 		}
 		if (n == 2) {
-            		char* key = malloc(50 * sizeof(char));
-           		scanf("%50s", key);
-            		key = (char*)malloc((strlen(str) + 1) * sizeof(char));
+            char* key = malloc(50 * sizeof(char));
+            scanf("%50s", key);
+            key = (char*)malloc((strlen(str) + 1) * sizeof(char));
 			mutableToLower(str);
 			mutableXorEncoder(str, key);
 			free(key);
