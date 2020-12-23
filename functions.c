@@ -40,20 +40,20 @@ char* immutableToLower(const char* str) {
 }
 
 void mutableStrip(char* str) {
-    	int r = 0, l = 0;
+    int r = 0, l = 0;
 	int n = strlen(str);
 	while (str[l] == ' ') {
 		++l;
-    	}
-    	while (str[n - 1 - r] == ' ') {
+    }
+    while (str[n - 1 - r] == ' ') {
 		++r;
    	 }
-    	int size = n - l - r;
+    int size = n - l - r;
 	int i;
-    	for (i = 0; i < size; ++i) {
+    for (i = 0; i < size; ++i) {
 		str[i] = str[l + i];
-    	}
-   	 str[size] = '\0';
+    }
+    str[size] = '\0';
 }
 
 char* immutableStrip(const char* str){
@@ -90,7 +90,7 @@ void mutableFilter(char* str) {
 	int k = 0;
 	while (str[i] != '\0') {
 		if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')
-	    	    || (str[i] >= '0' && str[i] <= '9') || (str[i] == ' '))
+            || (str[i] >= '0' && str[i] <= '9') || (str[i] == ' '))
 		{
 			str[k] = str[i];
 			++k;
@@ -122,12 +122,11 @@ bool isStringNumber(char* str) {
 bool isStringWord(char* str){
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
-		if (!((str[i] >= 'a' && str[i] <= 'z') 
+		if (!((str[i] >= 'a' && str[i] <= 'z')
 		       || (str[i] >= 'A' && str[i] <= 'Z')))
 		{
 			return false;
 		}
-		  
-	}
+    }
 	return true;
 }
