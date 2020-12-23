@@ -6,7 +6,7 @@
 #include "cypher.h"
 
 int main(int argc, char* argv[]) {
-	if (argc != 4 || argc != 1) {
+	if (argc != 4 && argc != 1) {
 		printf("Error: invalid number of arguments");
 		exit(1);
 	}
@@ -20,16 +20,16 @@ int main(int argc, char* argv[]) {
 		str = (char*)malloc((strlen(str) + 1) * sizeof(char));
 		printf("Key:");
 		if (n == 1) {
-            int offset;
-            scanf("%d", &offset);
+                        int offset;
+                        scanf("%d", &offset);
 			mutableToLower(str);
 			mutableCaesar(str, offset);
 			printf("Encoded string: %s", str);
 		}
 		if (n == 2) {
-		    char* key = malloc(50 * sizeof(char));
-            scanf("%50s", key);
-            key = (char*)malloc((strlen(str) + 1) * sizeof(char));
+		        char* key = malloc(50 * sizeof(char));
+                        scanf("%50s", key);
+                        key = (char*)malloc((strlen(str) + 1) * sizeof(char));
 			mutableToLower(str);
 			mutableXor(str, key);
 			printf("Encoded string: %s", str);

@@ -1,0 +1,28 @@
+all: encoder decoder
+
+encoder: encoder.o libcypher.a libfunctions.a
+	gcc encoder.o -L. -lcypher -lfunctions -o encoder
+
+decoder: decoder.o libcypher.a libfunctions.a
+	gcc decoder.o -L. -lcypher -lfunctions -o decoder
+
+encoder.o: 
+	gcc -c encoder.c
+
+decoder.o:
+	gcc -c decoder.c
+
+cypher.o: 
+	gcc -c cypher.c
+
+functions.o: 
+	gcc -c functions.c
+
+libcypher.a: cypher.o
+	ar cr libcypher.a cypher.o 
+
+libfunctions.a: functions.o
+	ar cr libfunctions.a functions.o
+
+clean:
+	rm -rf *.o *.a encoder

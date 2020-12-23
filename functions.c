@@ -108,7 +108,7 @@ char* immutableFilter(const char* str) {
 	char* strCopy = malloc(n * sizeof(char));
 	strcpy(strCopy, str);
 	mutableFilter(strCopy);
-	retur strCopy;
+	return strCopy;
 }
 
 bool isStringNumber(char* str) {
