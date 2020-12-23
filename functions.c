@@ -52,7 +52,7 @@ void mutableStrip(char* str) {
 		str[i] = str[l + i];
     	}
    	 str[size] = '\0';
-	}
+}
 
 char* immutableStrip(const char* str){
 	int n = strlen(str) + 1;
