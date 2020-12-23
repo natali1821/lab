@@ -49,7 +49,8 @@ void mutableStrip(char* str) {
 		++r;
    	 }
     	int size = n - l - r;
-    	for (int i = 0; i < size; ++i) {
+	int i;
+    	for (i = 0; i < size; ++i) {
 		str[i] = str[l + i];
     	}
    	 str[size] = '\0';
