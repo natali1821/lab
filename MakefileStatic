@@ -1,10 +1,10 @@
 all: encoder decoder
 
 encoder: encoder.o libcypher.a libfunctions.a
-	gcc encoder -L. -lcypher -lfunctions -o encoder
+	gcc -o encoder encoder.o -L. -lcypher -lfunctions -o encoder
 
 decoder: decoder.o libcypher.a libfunctions.a
-	gcc decoder -L. -lcypher -lfunctions -o decoder
+	gcc -o decoder decoder.o -L. -lcypher -lfunctions -o decoder
 
 encoder.o: 
 	gcc -c encoder.c
