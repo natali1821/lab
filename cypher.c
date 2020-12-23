@@ -2,13 +2,13 @@
 #include <string.h>
 #include "cypher.h"
 
-void mutableCaesar(char* str, int offset) {
+void mutableCaesarEncoder(char* str, int offset) {
 	char f;
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
-		f = (str[i] + offset) % ASCII_SIZE;
-		if (f >= 0 && f <= ASCII_DIF) {
-			str[i] = f + ASCII_DIF;
+		f = (str[i] + offset) % 256;
+		if (f >= 0 && f <= 32) {
+			str[i] = f + 32;
 		}
 		else {
 			str[i] = f;
@@ -16,22 +16,22 @@ void mutableCaesar(char* str, int offset) {
 	}
 }
 
-char* immutableCaesar(const char* str, int offset) {
+char* immutableCaesarEncoder(const char* str, int offset) {
 	char* strCopy = malloc((strlen(str) + 1) * sizeof(char));
 	strcpy(strCopy, str);
-	mutableCaesar(strCopy, offset);
+	mutableCaesarEncoder(strCopy, offset);
 	return strCopy;
 }
 
-void mutableXor(char* str, const char* key){
+void mutableXorEncoder(char* str, const char* key){
 	int n = strlen(str);
 	int nKey = strlen(key);
 	char f;
 	int i;
 	for (i = 0; i < n; ++i) {
 		f = str[i] ^ key[i % nKey];
-		if (f >= 0 && f <= ASCII_DIF) {
-			str[i] = f + ASCII_DIF;
+		if (f >= 0 && f <= 32) {
+			str[i] = f + 32;
 		}
 		else{
 			str[i] = f;
@@ -39,9 +39,25 @@ void mutableXor(char* str, const char* key){
 	}
 }
 
-char* immutableXor(const char* str, const char* key){
+char* immutableXorEncoder(const char* str, const char* key) {
 	char* strCopy = malloc((strlen(str) + 1) * sizeof(char));
  	strcpy(strCopy, str);
-	mutableXor(strCopy, key);
+	mutableXorEncoder(strCopy, key);
  	return strCopy;
+}
+
+void mutableCaesarDecoder(char* str, int offset) {
+    mutableCaesarEncoder(str, -offset);
+}
+
+char* immutableCaesarDecoder(const char* str, int offset) {
+    return immutableCaesarEncoder(str, -offset);
+}
+
+void mutableXorDecoder(char* str, const char* key) {
+    mutableXorEncoder(str, key);
+}
+
+char* immutableXorDecoder(const char* str, const char* key) {
+    return immutableXorEncoder(str, key);
 }
