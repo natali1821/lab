@@ -21,8 +21,8 @@ functions.o: functions.c
 libcypher.so: cypher.o 
 	gcc -shared -o libcypher.so cypher.o 
 
-libfunctions.so: function.o
-	gcc -shared -o libfunctions.so function.o
+libfunctions.so: functions.o
+	gcc -shared -o libfunctions.so functions.o
 
 clean:
 	rm -rf *.o *.so decoder
