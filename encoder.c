@@ -21,7 +21,6 @@ int main(int argc, char* argv[]) {
 		printf("String:");
 		char* str = malloc(100 * sizeof(char));
 		scanf("%100s", str);
-		str = (char*)malloc((strlen(str) + 1) * sizeof(char));
 		printf("Key:");
 		if (n == 1) {
             int offset;
@@ -33,7 +32,6 @@ int main(int argc, char* argv[]) {
 		if (n == 2) {
             char* key = malloc(50 * sizeof(char));
             scanf("%50s", key);
-            key = (char*)malloc((strlen(str) + 1) * sizeof(char));
 			mutableToLower(str);
 			mutableXorEncoder(str, key);
 			free(key);
