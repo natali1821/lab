@@ -109,15 +109,14 @@ char* immutableFilter(const char* str) {
 }
 
 bool isStringNumber(char* str) {
-	bool k = true;
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
-		if ((str[i] >= '0' && str[i] <= '9') && str[i] != '.' && str[i] != ','){
-			k = false;
-			break;
+		if (!(str[i] >= '0' && str[i] <= '9')) {
+			return false;
 		}
 	}
-	return k;
+	return true;
+
 }
 
 bool isStringWord(char* str){
