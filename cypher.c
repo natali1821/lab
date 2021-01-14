@@ -42,23 +42,23 @@ void mutableXorEncoder(char* str, const char* key){
 
 char* immutableXorEncoder(const char* str, const char* key) {
 	char* strCopy = malloc((strlen(str) + 1) * sizeof(char));
- 	strcpy(strCopy, str);
+	strcpy(strCopy, str);
 	mutableXorEncoder(strCopy, key);
- 	return strCopy;
+	return strCopy;
 }
 
 void mutableCaesarDecoder(char* str, int offset) {
-    mutableCaesarEncoder(str, -offset);
+	mutableCaesarEncoder(str, -offset);
 }
 
 char* immutableCaesarDecoder(const char* str, int offset) {
-    return immutableCaesarEncoder(str, -offset);
+	return immutableCaesarEncoder(str, -offset);
 }
 
 void mutableXorDecoder(char* str, const char* key) {
-    mutableXorEncoder(str, key);
+	mutableXorEncoder(str, key);
 }
 
 char* immutableXorDecoder(const char* str, const char* key) {
-    return immutableXorEncoder(str, key);
+	return immutableXorEncoder(str, key);
 }
