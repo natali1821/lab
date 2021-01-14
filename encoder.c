@@ -15,23 +15,23 @@ int main(int argc, char* argv[]) {
 		int n;
 		scanf("%d", &n);
 		if (n != 1 && n != 2) {
-            printf("Incorrect data");
-            exit(1);
-        }
+			printf("Incorrect data");
+			exit(1);
+		}
 		printf("String:");
 		char* str = malloc(100 * sizeof(char));
 		scanf("%100s", str);
 		printf("Key:");
 		if (n == 1) {
-            int offset;
-            scanf("%d", &offset);
-            mutableToLower(str);
+			int offset;
+			scanf("%d", &offset);
+			mutableToLower(str);
 			mutableCaesarEncoder(str, offset);
 			printf("Encoded string: %s", str);
 		}
 		if (n == 2) {
-            char* key = malloc(50 * sizeof(char));
-            scanf("%50s", key);
+			char* key = malloc(50 * sizeof(char));
+			scanf("%50s", key);
 			mutableToLower(str);
 			mutableXorEncoder(str, key);
 			free(key);
@@ -40,10 +40,10 @@ int main(int argc, char* argv[]) {
 		free(str);
 	}
 	if (argc == 4) {
-        	char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));
-        	strcpy(str, argv[2]);
-       		mutableStrip(str);
-       	 	mutableToLower(str);
+		char* str = malloc((strlen(argv[2]) + 1) * sizeof(char));
+		strcpy(str, argv[2]);
+		mutableStrip(str);
+		mutableToLower(str);
 		if (strcmp(argv[1], "--caesar") == 0) {
  			int offset;
 			if (isStringNumber(argv[3]) == true) {
