@@ -40,20 +40,14 @@ char* immutableToLower(const char* str) {
 }
 
 void mutableStrip(char* str) {
-    int r = 0, l = 0;
-	int n = strlen(str);
-	while (str[l] == ' ') {
-		++l;
-    }
-    while (str[n - 1 - r] == ' ') {
-		++r;
-   	 }
-    int size = n - l - r;
-	int i;
-    for (i = 0; i < size; ++i) {
-		str[i] = str[l + i];
-    }
-    str[size] = '\0';
+	int f = 0;
+	for (int i = 0; i < strlen(str); ++i) {
+		if (str[i] != ' ') {
+			str[f] = str[i];
+			++f;
+		}
+	}
+	str[f] = '\0';
 }
 
 char* immutableStrip(const char* str){
@@ -61,7 +55,7 @@ char* immutableStrip(const char* str){
 	char* strCopy = malloc(n * sizeof(char));
 	strcpy(strCopy, str);
 	mutableStrip(strCopy);
- 	return strCopy;
+	return strCopy;
 }
 
 void mutableTrimSpace(char* str) {
@@ -90,7 +84,7 @@ void mutableFilter(char* str) {
 	int k = 0;
 	while (str[i] != '\0') {
 		if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')
-            || (str[i] >= '0' && str[i] <= '9') || (str[i] == ' '))
+			|| (str[i] >= '0' && str[i] <= '9') || (str[i] == ' '))
 		{
 			str[k] = str[i];
 			++k;
@@ -123,10 +117,10 @@ bool isStringWord(char* str){
 	int i;
 	for (i = 0; str[i] != '\0'; ++i) {
 		if (!((str[i] >= 'a' && str[i] <= 'z')
-		       || (str[i] >= 'A' && str[i] <= 'Z')))
+				|| (str[i] >= 'A' && str[i] <= 'Z')))
 		{
 			return false;
 		}
-    }
+	}
 	return true;
 }
