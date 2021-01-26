@@ -41,7 +41,8 @@ char* immutableToLower(const char* str) {
 
 void mutableStrip(char* str) {
 	int f = 0;
-	for (int i = 0; i < strlen(str); ++i) {
+	int i = 0;
+	for (i = 0; i < strlen(str); ++i) {
 		if (str[i] != ' ') {
 			str[f] = str[i];
 			++f;
